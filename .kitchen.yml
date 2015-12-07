@@ -1,0 +1,21 @@
+---
+driver:
+  name: vagrant
+  network:
+    - ["private_network", {type: "dhcp"}]
+
+provisioner:
+  name: chef_zero
+  cookbooks_path: test/fixtures/cookbooks
+
+platforms:
+  - name: ubuntu-14.04
+    run_list: apt::default
+  - name: debian-8.1
+    run_list: apt::default
+
+suites:
+  - name: default
+    run_list:
+      - recipe[rtorrent::default]
+    attributes:

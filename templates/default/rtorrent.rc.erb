@@ -1,0 +1,9 @@
+#
+# This file is managed by Chef. Do NOT modify!
+#
+
+<%- @options.each do |key, val| %>
+<%- if val %>
+<%= key %> = <%= val %>
+<%- end %>
+<%- end %>
